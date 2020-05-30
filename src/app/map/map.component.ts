@@ -1,6 +1,6 @@
 import {AfterViewInit, Component} from '@angular/core';
 import * as L from 'leaflet';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {ShapeService} from '../_services/shape.service';
 
 const iconUrl = 'assets/data/marker-icon.png';
@@ -63,10 +63,24 @@ export class MapComponent implements AfterViewInit {
     }
 
     private initStatesLayer() {
-        this.http.get('assets/data/Belarus.json').subscribe((json: any) => {
-            console.log(json);
-            this.json = json;
-            L.geoJSON(this.json).addTo(this.map);
+        const stateLayer = L.geoJSON(this.states, {
+            style: (feature) => ({
+                weight: 3,
+                opacity: 0.5,
+                color: '#008f68',
+                fillOpacity: 0.8,
+                fillColor: '#6DB65B'
+            })
         });
+
+        this.map.addLayer(stateLayer);
     }
+
+    // {
+    //     this.http.get('assets/data/Belarus.json').subscribe((json: any) => {
+    //         // console.log(json);
+    //         this.json = json;
+    //         L.geoJSON(this.json).addTo(this.map);
+    //     });
+    // }
 }
