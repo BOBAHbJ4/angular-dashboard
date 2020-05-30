@@ -62,25 +62,45 @@ export class MapComponent implements AfterViewInit {
         marker6.bindPopup('<b>Hello!</b><br>I am a popup.').openPopup();
     }
 
-    private initStatesLayer() {
-        const stateLayer = L.geoJSON(this.states, {
-            style: (feature) => ({
-                weight: 3,
-                opacity: 0.5,
-                color: '#008f68',
-                fillOpacity: 0.8,
-                fillColor: '#6DB65B'
-            })
-        });
+  private initStatesLayer() {
+    const stateLayer = L.geoJSON(this.states, {
+      style: (feature) => ({
+        weight: 3,
+        opacity: 0.5,
+        color: '#008f68',
+        fillOpacity: 0.8,
+        fillColor: '#6DB65B'
+      }),
+      onEachFeature: (feature, layer) => (
+        layer.on({
+          mouseover: (e) => (this.highlightFeature(e)),
+          mouseout: (e) => (this.resetFeature(e)),
+        })
+      )
+    });
 
-        this.map.addLayer(stateLayer);
-    }
+    this.map.addLayer(stateLayer);
+  }
 
-    // {
-    //     this.http.get('assets/data/Belarus.json').subscribe((json: any) => {
-    //         // console.log(json);
-    //         this.json = json;
-    //         L.geoJSON(this.json).addTo(this.map);
-    //     });
-    // }
+  private highlightFeature(e)  {
+    const layer = e.target;
+    layer.setStyle({
+      weight: 10,
+      opacity: 1.0,
+      color: '#DFA612',
+      fillOpacity: 1.0,
+      fillColor: '#FAE042',
+    });
+  }
+
+  private resetFeature(e)  {
+    const layer = e.target;
+    layer.setStyle({
+      weight: 3,
+      opacity: 0.5,
+      color: '#008f68',
+      fillOpacity: 0.8,
+      fillColor: '#6DB65B'
+    });
+  }
 }
