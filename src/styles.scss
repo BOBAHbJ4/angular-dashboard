@@ -1,1 +1,85 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~leaflet/dist/leaflet.css";
+
+.table {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: cadetblue;
+  color: white;
+}
+
+//.leftSide, .rightSide {
+//  position: fixed;
+//  top: 0;
+//  left: 0.625em;
+//  width: 100%;
+//  height: 100%;
+//  color: white;
+//}
+
+header {
+  text-align: justify;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3em;
+  padding-left: 1em;
+  background-color: blue;
+}
+
+#logo {
+  background:url('/assets/data/bytech-logo.png') top no-repeat;
+  float: right;
+  height: 2em;
+  margin-right: 1.5em;
+  }
+
+p {
+  display: inline-block;
+}
+
+.serviceLevel, {
+  height: 4em;
+  width: 10em;
+  background-color: white;
+  margin-left: 0.625em;
+  margin-top: 3.5em;
+  border-radius: 0.5em;
+}
+.count_servLev {
+  color: green;
+}
+.service {
+  height: 4em;
+  width: 10em;
+  background-color: white;
+  margin-left: 0.625em;
+  margin-top: 0.625em;
+  border-radius: 0.5em;
+}
+
+.count_serv{
+  color: red;
+}
+.map-container {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: 50%;
+  bottom: 0.625em;
+  margin-left: 0.625em;;
+}
+
+.map-frame {
+  border: 2px solid black;
+  height: 100%;
+}
+
+#map {
+  height: 100%;
+}
+

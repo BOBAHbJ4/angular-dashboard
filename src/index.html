@@ -1,13 +1,60 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <title>AngularDashboard</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="utf-8">
+    <title>AngularDashboard</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <app-root></app-root>
+<app-root></app-root>
+<div class="table">
+    <header>
+        <div id="menu">
+            <div class="header-bg">
+                <p> Main </p>
+                <p>ATM</p>
+                <p>clock</p>
+                <p>date</p>
+
+                <div id="logo">
+                    <a href="/"><img src="/assets/data/bytech-logo.png" alt="LOGO" height="60px" width="60px"/></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="leftSide">
+        <div class="serviceLevel">
+            <div class="count_servLev">98.2%</div>
+        </div>
+        <div class="service">
+            <div class="count_serv">25/480</div>
+        </div>
+        <div class="map-container">
+            <div class="map-frame">
+                <div id="map">
+                    <div id="info">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="charts-serviceAtmOk">
+            <div id="serviceAtmOk"></div>
+        </div>
+    </div>
+</div>
+<div class="rightSide">
+    <div className="charts-fallback">
+        <div id="fallback"></div>
+    </div>
+    <div className="charts-cashoutCountOk">
+        <div id="cashoutCountOk"></div>
+    </div>
+    <div className="charts-faultsInfo">
+        <div id="faultsInfo"></div>
+    </div>
+</div>
+
 </body>
 </html>
