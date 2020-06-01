@@ -1,3 +1,5 @@
+// this service keep coloring the map
+
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
