@@ -14,14 +14,9 @@ const iconDefault = L.icon({
 L.Marker.prototype.options.icon = iconDefault;
 
 const getColor = d => {
-  return d > 1000 ? '#800026' :
-    d > 500 ? '#BD0026' :
-      d > 200 ? '#E31A1C' :
-        d > 100 ? '#FC4E2A' :
-          d > 50 ? '#FD8D3C' :
-            d > 20 ? '#FEB24C' :
-              d > 10 ? '#FED976' :
-                '#FFEDA0';
+  return d > 1000 ? '#fc0505' :
+    d > 500 ? '#fcec05' :
+                '#05fc15';
 }
 
 @Component({
@@ -72,6 +67,7 @@ export class MapComponent implements AfterViewInit {
         marker5.bindPopup('<b>Hello!</b><br>I am a popup.');
         marker6.bindPopup('<b>Hello!</b><br>I am a popup.').openPopup();
 
+        // begin legend
         this.legend = L.control({ position: 'bottomright' });
 
         this.legend.onAdd = map => {
@@ -79,7 +75,7 @@ export class MapComponent implements AfterViewInit {
         // tslint:disable-next-line:one-variable-per-declaration prefer-const
         let div = L.DomUtil.create('div', 'info legend'),
           // tslint:disable-next-line:prefer-const
-          grades = [0, 10, 20, 50, 100, 200, 500, 1000],
+          grades = [200, 500, 1000],
           // tslint:disable-next-line:prefer-const
           labels = [],
           from, to;
@@ -97,6 +93,7 @@ export class MapComponent implements AfterViewInit {
         return div;
       }
         this.legend.addTo(this.map);
+        // end legend
     }
 
     private initStatesLayer() {
