@@ -1,12 +1,13 @@
 import {AfterViewInit, Component} from '@angular/core';
 import * as L from 'leaflet';
 import {HttpClient} from '@angular/common/http';
+import { MarkerService } from '../_services/marker.service';
 import {ShapeService} from '../_services/shape.service';
 
 const iconUrl = 'assets/data/marker-icon.png';
 const iconDefault = L.icon({
   iconUrl,
-  iconSize: [51, 61],
+  iconSize: [31, 41],
   iconAnchor: [12, 41],
   popupAnchor: [12, -41],
   tooltipAnchor: [16, -28]
@@ -32,11 +33,13 @@ export class MapComponent implements AfterViewInit {
   private legend: any;
 
   constructor(private http: HttpClient,
+              private markerService: MarkerService,
               private shapeService: ShapeService) {
   }
 
   ngAfterViewInit(): void {
     this.initMap();
+    this.markerService.makeCapitalMarkers(this.map);
     this.shapeService.getStateShapes().subscribe(states => {
       this.states = states;
       this.initStatesLayer();
