@@ -1,9 +1,10 @@
 import {AfterViewInit, Component} from '@angular/core';
 import * as L from 'leaflet';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { MarkerService } from '../_services/marker.service';
-import {ShapeService} from '../_services/shape.service';
+import { ShapeService } from '../_services/shape.service';
 
+// add custom marker
 const iconUrl = 'assets/data/marker-icon.png';
 const iconDefault = L.icon({
   iconUrl,
@@ -16,8 +17,8 @@ L.Marker.prototype.options.icon = iconDefault;
 
 // colors for legend
 const getColor = d => {
-  return d > 1000 ? '#05fc15' :
-    d > 500 ? '#fcec05' :
+  return d > 10 ? '#05fc15' :
+    d > 1 ? '#fcec05' :
       '#fc0505';
 };
 
@@ -26,6 +27,7 @@ const getColor = d => {
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
+
 export class MapComponent implements AfterViewInit {
 
   private map;
@@ -64,7 +66,7 @@ export class MapComponent implements AfterViewInit {
       // tslint:disable-next-line:one-variable-per-declaration prefer-const
       let div = L.DomUtil.create('div', 'info legend'),
         // tslint:disable-next-line:prefer-const
-        grades = [200, 500, 1000],
+        grades = [0, 1, 10],
         // tslint:disable-next-line:prefer-const
         labels = [],
         from, to;
@@ -75,7 +77,7 @@ export class MapComponent implements AfterViewInit {
 
         labels.push(
           '<i style="background:' + getColor(from + 1) + '"></i> ' +
-          from + (to ? '&ndash;' + to : '+'));
+          from + '&thinsp;' + (to ? '&frasl;' + '&thinsp;' + to : '+') + '(не раб./раб.)'); // 	&thinsp; -- узкий пробел; &frasl; -- дробь
       }
 
       div.innerHTML = labels.join('<br>');

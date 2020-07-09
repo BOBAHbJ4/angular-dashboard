@@ -12,19 +12,26 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: cadetblue;
+  background-color: #d4edff;
   color: white;
 }
 
-//.leftSide, .rightSide {
-//  position: fixed;
-//  top: 0;
-//  left: 0.625em;
-//  width: 100%;
-//  height: 100%;
-//  color: white;
-//}
-
+.leftSide {
+  position: fixed;
+  top: 0;
+  left: 0.625em;
+  width: 50%;
+  height: 100%;
+  color: white;
+}
+.rightSide{
+  position: fixed;
+  top: 0;
+  right: 0.625em;
+  width: 50%;
+  height: 100%;
+  color: white;
+}
 header {
   text-align: justify;
   position: absolute;
@@ -33,7 +40,7 @@ header {
   width: 100%;
   height: 3em;
   padding-left: 1em;
-  background-color: blue;
+  background: linear-gradient(to right,#3270BB, #27C4F1);
 }
 
 #logo {
@@ -47,44 +54,97 @@ p {
   display: inline-block;
 }
 
-.serviceLevel, {
+#current_date_time_block{
+  position: absolute;
+  right: 4em;
+  top: 0.3em;
+  background: linear-gradient(to right,#3270BB, #27C4F1);
+  width: 9.5em;
+  border-radius: 0.3em;
+  font-size: 1.7em;
+  text-align: center;
+}
+
+.serviceLevel {
   height: 4em;
   width: 10em;
+  position: relative;
   background-color: white;
   margin-left: 0.625em;
-  margin-top: 3.5em;
+  margin-top: 4em;
   border-radius: 0.5em;
 }
 
 .count_servLev {
+  //color: green;
+  //position: relative;
+  //text-align: center;
+  //font-size: 35px;
+  //text-align: center;
+}
+
+.count_servLev p{
+  color: black;
+  margin: 0 5px 10px 5px;
+  position: absolute;
+  font-size: 15px;
+  float: left;
+  margin: 0em 0.9em 0.9em 4em;
+}
+
+.count_servLev span{
   color: green;
+  position: absolute;
+  font-size: 35px;
+  text-align: center;
+  margin: 0.6em 0.9em 0.9em 1.7em;
 }
 
 .service {
   height: 4em;
   width: 10em;
+  position: relative;
   background-color: white;
   margin-left: 0.625em;
-  margin-top: 0.625em;
+  margin-top: 1em;
   border-radius: 0.5em;
 }
 
 .count_serv {
+  height: 4em;
+  width: 10em;
+  position: relative;
   color: red;
+  font-size: 35px;
+}
+.count_serv p{
+  color: black;
+  margin: 0 5px 10px 5px;
+  position: absolute;
+  font-size: 15px;
+  float: left;
+}
+
+.count_serv span{
+  color: red ;
+  position: absolute;
+  font-size: 35px;
+  margin: 0.6em 0.9em 0.9em 1.7em;
 }
 
 .map-container {
   position: absolute;
-  top: 30%;
+  top: 29%;
   left: 0;
-  right: 50%;
+  right: 0;
   bottom: 0.625em;
-  margin-left: 0.625em;;
+  margin-left: 0.625em;
 }
 
 .map-frame {
-  border: 2px solid black;
+  border: 0.6em solid white;
   height: 100%;
+  border-radius: 0.5em;
 }
 
 #map {
