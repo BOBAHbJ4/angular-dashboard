@@ -8,6 +8,9 @@ import {MarkerService} from './_services/marker.service';
 import {PopUpService} from './_services/pop-up.service';
 import {HttpClientModule} from '@angular/common/http';
 import {ShapeService} from './_services/shape.service';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import {ShapeService} from './_services/shape.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    NgxChartsModule,
+    BrowserAnimationsModule
   ],
   providers: [MarkerService,
     PopUpService,
